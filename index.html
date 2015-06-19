@@ -6,8 +6,8 @@
     <title>客服聊天</title>
     <link rel="stylesheet" href="css/basic.css"/>
 </head>
-<body>
-<div id="box">
+<body ng-app="csr_chat">
+<div id="box" ng-controller="listControler">
     <div class="tapbarWrap">
         <div class="topbar">
             <a class="iconf iconf_setting" href="javascript:;" title="setting">setting</a>
@@ -17,10 +17,17 @@
                 <span class="info iconf_time" href="javascript:;" title="time">time</span>
             </div>
         </div>
-        <div class="sub-nav">
-            <a href="javascript:;" class="nav-list">接待中</a>
-            <a href="javascript:;" class="nav-list">接待过的客户</a>
-            <a href="javascript:;" class="nav-list">所有客户</a>
+        <div class="sub-nav"  id="csrList_header">
+            <a href="javascript:;" class="nav-list" id="in_nav">{{inReception}}</a>
+            <a href="javascript:;" class="nav-list" id="my_nav">{{myCustomers}}}</a>
+            <a href="javascript:;" class="nav-list" id="all_nav">{{allCustomers}}}</a>
+        </div>
+        <div class="sub-nav" id="conversation_header">
+            <div class="iconf_back">
+                <span>back</span>
+            </div>
+            <div class="iconf_clear"></div>
+            <div class="iconf_setting">zhuanfa</div>
         </div>
     </div>
     <div class="contentWrap">
@@ -28,19 +35,25 @@
             <div class="feed-loading hid">
                 <span>loading</span>
             </div>
-            <div class="dataCont"></div>
+            <div class="dataCont">
+                <h1>in_list</h1>
+            </div>
         </div>
         <div id="my_list" class="tabCont">
             <div class="feed-loading hid">
                 <span>loading</span>
             </div>
-            <div class="dataCont"></div>
+            <div class="dataCont">
+                <h1>my_list</h1>
+            </div>
         </div>
         <div id="all_list" class="tabCont">
             <div class="feed-loading hid">
                 <span>loading</span>
             </div>
-            <div class="dataCont"></div>
+            <div class="dataCont">
+                <h1>all_list</h1>
+            </div>
         </div>
     </div>
     <div id="msgBox">
@@ -51,5 +64,6 @@
         <div class="usrInput"></div>
     </div>
 </div>
+<script src="./js/index.js"></script>
 </body>
 </html>

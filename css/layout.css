@@ -53,7 +53,7 @@ a:-webkit-any-link{
 .iconf_clear{
     width:60%;
 }
-.iconf_info{
+.iconf_info,.iconf_back{
     width: 30%;
 }
 .info{
@@ -73,6 +73,9 @@ a:-webkit-any-link{
     border-top-width: 0;
     border-bottom-width: 0;
     text-align: center;
+}
+#conversation_header{
+    display: none;
 }
 .nav-list{
     width: 33%;

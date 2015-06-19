@@ -12,7 +12,7 @@ body{
 .topbar a:hover{
     color:#ccc;
 }
-.sub-nav{
+.sub-nav,.session_nav{
     background-color: #eee;
     color:#000;
 }
