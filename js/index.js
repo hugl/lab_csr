@@ -37,5 +37,8 @@ app.controller('listControler',function($scope){
         $scope.showMy = false;
         $scope.showAll = false;
     }
+    $scope.backToList = function(){
+        $scope.showConversation = false;
+    }
 });
 
