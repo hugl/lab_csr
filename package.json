@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/hugl/lab_csr",
   "dependencies": {
-    "angular": "^1.4.1"
+    "angular": "^1.4.1",
+    "bootstrap": "^3.3.5",
+    "express": "^4.13.0",
+    "jquery": "^2.1.4"
   }
 }
