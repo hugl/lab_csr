@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  ng-app="csr_chat">
+<html  ng-app="silkcloudChat">
 <head lang="en">
     <meta charset="UTF-8">
     <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
@@ -10,12 +10,28 @@
 <body ng-controller="listControler">
 <div id="box" >
     <div class="tapbarWrap">
+        <div class="setting-div" ng-show="showSettingPanel">
+            <div class="upper-beacon"></div>
+            <div class="setting-item">
+                {{playNotification}}
+                <span class="slide-bar-span"><slide-bar bind-on="{{constants.NOTIFICATION}}"></slide-bar></span>
+            </div>
+        </div>
+        <div class="setting-div setting-task list-group" ng-show="showTaskList">
+            <div class="upper-beacon"></div>
+            <li class="list-group-item"><span>{{txtForwardTo}}</span><span>user1</span></li>
+            <li class="list-group-item"><span>{{txtForwardTo}}</span><span>user2</span></li>
+            <li class="list-group-item"><span>{{txtForwardTo}}</span><span>user4</span></li>
+            <li class="list-group-item"><span>{{txtForwardTo}}</span><span>user5</span></li>
+        </div>
         <div class="topbar">
-            <a class="iconf iconf_setting" href="javascript:;" title="setting">setting</a>
+            <div class="iconf iconf_setting" ng-click="enableSettingPanel()"><span class="glyphicon glyphicon-cog"></span></div>
+            <div class="iconf iconf_clear"></div>
+            <div class="iconf iconf_clear"></div>
             <div class="iconf iconf_clear"></div>
             <div class="iconf iconf_info">
-                <a class="info iconf_user" href="javascript:;" title="user">gulan hu</a>
-                <span class="info iconf_time" href="javascript:;" title="time">time</span>
+                <a class="info iconf_user" href="javascript:;" title="user">{{currentName}}</a>
+                <span class="info iconf_time" href="javascript:;" title="time"><timer></timer></span>
             </div>
         </div>
         <div class="sub-nav"  id="csrList_header" ng-show="!showConversation">
@@ -23,48 +39,33 @@
             <a href="javascript:;" class="nav-list" id="my_nav" ng-click="loadMyCustomersList()">{{myCustomers}}</a>
             <a href="javascript:;" class="nav-list" id="all_nav" ng-click="loadAllCustomersList()">{{allCustomers}}</a>
         </div>
-        <div class="sub-nav" id="conversation_header" ng-show="showConversation">
-            <div class="iconf_back">
-                <button class="btn navbar-btn" ng-click="backToList()">back to the last page</button>
-            </div>
-            <div class="iconf_clear"></div>
-            <div class="iconf_setting">
-                <button class="btn btn-primary">zhuan</button>
-            </div>
+        <div class="session-nav" id="conversation_header" ng-show="showConversation">
+            <div class="iconf iconf_back" ng-click="backToList()"><span class="glyphicon glyphicon-chevron-left"></span></div>
+            <div class="iconf iconf_clear"></div>
+            <div class="iconf iconf_clear"></div>
+            <div class="iconf iconf_clear" ng-click="onSession()">{{session}}</div>
+            <div class="iconf iconf_userinfo" ng-click="onDeails()">{{details}}</div>
+            <div class="iconf iconf_userinfo" ng-click="onOrders()">{{orders}}</div>
+            <div class="iconf iconf_task"  ng-click="onForwardTo()"><span class="glyphicon glyphicon-share-alt"></span></div>
         </div>
     </div>
     <div class="contentWrap">
-        <div class="tabCont" ng-show="showInRecept">
+        <div class="tabCont" ng-show="showTabContents">
             <div class="feed-loading hid">
                 <span>loading</span>
             </div>
             <div class="dataCont">
-                <h1>in_list</h1>
+                <p ng-click="loadConversation()">{{Contents}}</p>
             </div>
         </div>
-        <div class="tabCont" ng-show="showMy">
+        <div class="tabCont" ng-show="showConversation">
             <div class="feed-loading hid">
                 <span>loading</span>
             </div>
-            <div class="dataCont">
-                <h1>my_list</h1>
-            </div>
+            <div class="dataCont" ng-show="!showInfo">{{sessionDetails}}</div>
+            <div class="dataCont" ng-show="showInfo">{{customerInfo}}</div>
+            <div class="usrInput"></div>
         </div>
-        <div class="tabCont" ng-show="showAll">
-            <div class="feed-loading hid">
-                <span>loading</span>
-            </div>
-            <div class="dataCont">
-                <h1 ng-click="loadConversation()">all_list</h1>
-            </div>
-        </div>
-    </div>
-    <div id="msgBox" ng-show="showConversation">
-        <div class="feed-loading">
-            <span>loading</span>
-        </div>
-        <div class="dataCont"></div>
-        <div class="usrInput"></div>
     </div>
 </div>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
