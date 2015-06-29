@@ -12,9 +12,6 @@ app. controller('listControler',function($scope,$interval,$http){
     $scope.session = "会话";
     $scope.removeCustomer = "删除用户";
 
-    //$scope.Contents = "this is for contents";
-    $scope.sessionDetails = "";
-
     $scope.showTabContents = true;
     $scope.showSession = false;
     $scope.showSettingPanel = false;
@@ -22,6 +19,7 @@ app. controller('listControler',function($scope,$interval,$http){
     $scope.showInfo = false;
     $scope.currentConversation = null;
     $scope.conversationList = [];
+    $scope.customerInfo = null;
 
     //加载Conversation列表
     $scope.loadInReceptionList = function(){
@@ -77,11 +75,11 @@ app. controller('listControler',function($scope,$interval,$http){
     }
     $scope.onDeails = function(){
         $scope.showInfo = true;
-        $scope.customerInfo = currentConversation.customer.info;
+        $scope.showOrder = false;
     }
     $scope.onOrders = function(){
         $scope.showInfo = true;
-        $scope.customerInfo = currentConversation.customer.order;
+        $scope.showOrder = true;
     }
     $scope.onSession = function(){
         $scope.showInfo = false;

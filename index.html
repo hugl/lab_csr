@@ -93,7 +93,8 @@
                         {{currentConversation.name}}
                     <div class="usrInput"></div>
                 </div>
-                <div class="dataCont" ng-show="showInfo">{{customerInfo}}</div>
+                <div class="dataCont" ng-show="showInfo&&!showOrder">{{currentConversation.status}}</div>
+                <div class="dataCont" ng-show="showInfo&&showOrder">{{currentConversation.type}}</div>
             </div>
         </div>
 
