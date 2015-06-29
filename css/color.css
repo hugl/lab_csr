@@ -23,15 +23,18 @@ span.slidebar-outer {
     background-color: #eee;
     color:#000;
 }
-.sub-nav a:link{
+.sub-nav a{
    color:#000;
 }
 .sub-nav a:hover{
-    color:#333;
+    color:#666;
 }
 .sub-nav a:active{
     color: #000;
     background-color: #fff;
+}
+.selected{
+    background-color: #000;
 }
 .contentWrap{
     background-color: transparent;
