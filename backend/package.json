@@ -1,0 +1,14 @@
+{
+  "name": "csr_backend",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "^1.0.2",
+    "express": "^4.13.0",
+    "jsonwebtoken": "^0.4.0",
+    "mongoose": "^3.8.8",
+    "morgan": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

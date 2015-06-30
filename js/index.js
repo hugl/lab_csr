@@ -1,3 +1,4 @@
+
 var app = angular.module("silkcloudChat", []);
 
 app. controller('listControler',function($scope,$interval,$http){
@@ -43,14 +44,12 @@ app. controller('listControler',function($scope,$interval,$http){
         $scope.showTabContents = true;
         $scope.showSession = false;
         //$('#my_nav').css('background-color','#fff');
-        $scope.conversationList = {'name':'show my customers List'};
 
     }
     $scope.loadAllCustomersList = function(){
         $scope.showTabContents = true;
         $scope.showSession = false;
         //$('#all_nav').css('background-color','#fff');
-        $scope.conversationList = {'name':'show all customers List'};
     }
 
     $scope.loadSession = function(conversation){
@@ -143,3 +142,5 @@ var addZero = function (number) {
     else
         return "" + number;
 }
+
+var Converation = require("../js/models/Conversation");
