@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html  ng-app="silkcloudChat">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <title>客服聊天</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/basic.css"/>
+</head>
+<body ng-controller="listControler">
+<div id="box" >
+    <div class="tapbarWrap">
+        <div class="setting-div" ng-show="showSettingPanel">
+            <div class="upper-beacon"></div>
+            <div class="setting-item">
+                {{playNotification}}
+                <span class="slide-bar-span"><slide-bar bind-on="{{constants.NOTIFICATION}}"></slide-bar></span>
+            </div>
+        </div>
+        <div class="setting-div setting-task list-group" ng-show="showTaskList">
+            <div class="upper-beacon"></div>
+            <li class="list-group-item"><span>{{txtForwardTo}}</span><span>user1</span></li>
+            <li class="list-group-item"><span>{{txtForwardTo}}</span><span>user2</span></li>
+            <li class="list-group-item"><span>{{txtForwardTo}}</span><span>user4</span></li>
+            <li class="list-group-item"><span>{{txtForwardTo}}</span><span>user5</span></li>
+        </div>
+        <div class="topbar">
+            <div class="iconf iconf_setting" ng-click="enableSettingPanel()"><span class="glyphicon glyphicon-cog"></span></div>
+            <div class="iconf iconf_clear"></div>
+            <div class="iconf iconf_clear"></div>
+            <div class="iconf iconf_clear"></div>
+            <div class="iconf iconf_info">
+                <a class="info iconf_user" href="javascript:;" title="user">{{currentName}}</a>
+                <span class="info iconf_time" href="javascript:;" title="time"><span id="minutes">00</span>:<span id="seconds">00</span></span>
+            </div>
+        </div>
+        <div class="sub-nav"  id="csrList_header" ng-show="!showSession">
+            <!--<a href="#inReception" class="nav-list" data-toggle="tab">{{inReception}}</a>-->
+            <!--<a href="#myCustomers" class="nav-list" data-toggle="tab">{{myCustomers}}</a>-->
+            <!--<a href="#allCustomers" class="nav-list" data-toggle="tab">{{allCustomers}}</a>-->
+            <a href="javascript:;" class="nav-list" id="in_nav" ng-click="loadInReceptionList()">{{inReception}}</a>
+            <a href="javascript:;" class="nav-list" id="my_nav" ng-click="loadMyCustomersList()">{{myCustomers}}</a>
+            <a href="javascript:;" class="nav-list" id="all_nav" ng-click="loadAllCustomersList()">{{allCustomers}}</a>
+        </div>
+        <div class="session-nav" id="conversation_header" ng-show="showSession">
+            <div class="iconf iconf_back" ng-click="backToList()"><span class="glyphicon glyphicon-chevron-left"></span></div>
+            <div class="iconf iconf_clear"></div>
+            <div class="iconf iconf_clear"></div>
+            <div class="iconf iconf_clear" ng-click="onSession()">{{session}}</div>
+            <div class="iconf iconf_userinfo" ng-click="onDeails()">{{details}}</div>
+            <div class="iconf iconf_userinfo" ng-click="onOrders()">{{orders}}</div>
+            <div class="iconf iconf_task"  ng-click="onForwardTo()"><span class="glyphicon glyphicon-share-alt"></span></div>
+        </div>
+    </div>
+    <div class="contentWrap">
+        <div class="tabCont" ng-show="showTabContents">
+            <div class="feed-loading hid">
+                <span>loading</span>
+            </div>
+            <div class="dataCont">
+                <div ng-repeat="conversation in conversationList" ng-click="loadSession(conversation)">
+                    <div class="delete-customer conversation-operation-panel"
+                         title="{{'removeCustomer'}}"
+                         data-ng-click="onRemoveCustomer(conversation)"
+                            ></div>
+
+                    <div class="gone" data-ng-show="conversation.customer.hasGone"></div>
+                    <span style="display: inline-block;float: left;position: relative">
+                    <img data-ng-src="{{conversation.customer.avatar}}" class="avatar"/>
+
+                        <span class="circle-count"
+                              ng-if="conversation.__unreadCount > 0">
+                            {{conversation.__unreadCount}}
+                        </span>
+                    </span>
+                    <div class="conversation-name-and-last-reply">
+                    <span style="display: block;margin-bottom:10px;">
+                        {{conversation.name}}
+                    </span>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+                <!--<div class="tab-pane" id="myCustomers">myCustomers</div>-->
+                <!--<div class="tab-pane" id="allCustomers">allCustomers</div>-->
+            </div>
+        </div>
+        <div class="tabCont" ng-show="showSession">
+            <div data-ng-show="currentConversation != null" class="message-conversation-info-area">
+                <div class="feed-loading hid">
+                    <span>loading</span>
+                </div>
+                <div class="dataCont" ng-show="!showInfo">
+                        {{currentConversation.name}}
+                    <div class="usrInput"></div>
+                </div>
+                <div class="dataCont" ng-show="showInfo&&!showOrder">{{currentConversation.status}}</div>
+                <div class="dataCont" ng-show="showInfo&&showOrder">{{currentConversation.type}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
