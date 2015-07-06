@@ -1,0 +1,33 @@
+.wechat-expression-div {
+    box-sizing: border-box;
+    width: 540px;
+    padding: 13px;
+    border: 2px solid #000000;
+    background-color: white;
+    z-index: 100;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.wechat-expression-div ul {
+    border: 1px solid #d3d3d3;
+    list-style: none;
+    padding: 0;
+    margin:5px;
+}
+
+.wechat-expression-div ul li {
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    float: left;
+    padding: 2px;
+    border: 1px solid #e8e8e8;
+    cursor: pointer;
+}
+
+.wechat-expression-div ul:after {
+    display: table;
+    content: '';
+    clear: both;
+}

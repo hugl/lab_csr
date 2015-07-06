@@ -1,0 +1,77 @@
+.popup-background-div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    background-color: rgba(255, 255, 255, .2);
+    display: none;
+}
+
+.popup-message-box {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 200px;
+    width: 500px;
+    min-height: 200px;
+    border: 1px solid rgba(207, 207, 207, .8);
+    box-shadow: 1px 1px 1px 1px black;
+    background-color: #ffffff;
+    border-radius: 5px 5px 10px 10px;
+}
+
+.popup-message-box .title-area {
+    width: 501px;
+    margin: 0;
+    height: 30px;
+    background-color: #002425;
+    padding-bottom: 0;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+}
+
+.popup-message-box .title-area .title {
+    margin-left: 20px;
+    color: white;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.popup-message-box .message-area {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 430px;
+    height: 110px;
+    /*border: 1px solid black;*/
+    font-size: 22px;
+    padding: 10px;
+    padding-top: 30px;
+    color: rgba(0, 36, 37, .8);
+    box-sizing: border-box;
+}
+
+.popup-message-box .button-area {
+    margin-left: auto;
+    margin-right: auto;
+    width: 430px;
+    height: 30px;
+    /*border: 1px solid black;*/
+    padding: 5px 15px;
+    box-sizing: border-box;
+}
+
+.popup-message-box .button-area .operation-button {
+    float: right;
+    padding: 5px 10px;
+    border: 1px solid rgba(207, 207, 207, .8);
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-message-box .button-area .confirm-button {
+    background-color: #002425;
+    color: #ffffff;
+}
+

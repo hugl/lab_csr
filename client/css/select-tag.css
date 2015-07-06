@@ -1,0 +1,66 @@
+.tag-container {
+    display: block;
+    padding: 5px;
+    border: solid 1px #ccc;
+}
+
+.tag-container > label {
+    display: inline-block;
+    margin: 5px;
+    padding: 0 4px;
+    height: 20px;
+    background-color: #CCCCFF;
+    border: solid 1px #ccc;
+    border-radius: 8px;
+}
+
+.tag-container > label span {
+    font-size: 12px;
+}
+
+.tag-container > label i {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    cursor: pointer;
+}
+
+.tag-container > label i:after {
+    content: '\2716';
+    font-style: normal;
+    color: #666;
+}
+
+.tag-container .suggestionArea {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+}
+
+.tag-container .suggestionArea > input {
+    width: 200px;
+    margin: 5px;
+}
+
+.tag-container .suggestionArea > div {
+    position: absolute;
+    top: 25px;
+    left: 5px;
+    width: 204px;
+    z-index: 3;
+    border: solid 1px #ccc;
+    background-color: white;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.tag-container .suggestionArea > div > div {
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    z-index: 10;
+}
+
+.tag-container .suggestionArea > div > div:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}

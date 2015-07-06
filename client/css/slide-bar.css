@@ -1,0 +1,137 @@
+/*iphone style slidebar*/
+
+.slide-bar-span {
+    float: right;
+    margin-right: 10px;
+    position: relative;
+    top: -3px;
+}
+
+.slide-bar-span:after {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+span.slidebar-outer {
+    width: 40px;
+    height: 20px;
+    background: red;
+    border-radius: 10px;
+    position: relative;
+    padding: 0;
+    border: 1px solid red;
+    display: inline-block;
+}
+
+span.slidebar-white {
+    background: white;
+    z-index: 2;
+    height: 20px;
+
+    border-radius: 10px;
+    margin: 0;
+
+    display: inline-block;
+}
+
+span.slidebar-circle {
+    margin: 0;
+    border: 1px solid red;
+    top: -1px;
+    left: -1px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    display: inline-block;
+}
+
+@keyframes move-to-right /* other browsers*/
+{
+    from {
+        width: 0;
+    }
+    to {
+        width: 40px;
+    }
+}
+
+@-webkit-keyframes move-to-right /* Safari and Chrome */
+{
+    from {
+        width: 0;
+    }
+    to {
+        width: 40px;
+    }
+}
+
+@keyframes move-to-right-circle /* other browsers*/
+{
+    from {
+        left: -1px;
+    }
+    to {
+        left: 20px;
+    }
+}
+
+@-webkit-keyframes move-to-right-circle /* Safari and Chrome */
+{
+    from {
+        left: -1px;
+    }
+    to {
+        left: 20px;
+    }
+}
+
+
+
+/*move back*/
+
+@keyframes move-to-left /* other browsers*/
+{
+    from {
+        width: 40px;
+    }
+    to {
+        width: 0;
+    }
+}
+
+@-webkit-keyframes move-to-left /* Safari and Chrome */
+{
+    from {
+        width: 40px;
+    }
+    to {
+        width: 0;
+    }
+}
+
+@keyframes move-to-left-circle /* other browsers*/
+{
+    from {
+        left: 20px;
+    }
+    to {
+        left: -1px;
+    }
+}
+
+@-webkit-keyframes move-to-left-circle /* Safari and Chrome */
+{
+    from {
+        left: 20px;
+    }
+    to {
+        left: -1px;
+    }
+}
+
+
+/*iphone style slidebar*/
